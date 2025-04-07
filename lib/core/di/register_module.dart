@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -11,6 +12,11 @@ abstract class RegisterModule {
 
   @injectable
   Dio get dio => Dio();
+
+  @preResolve
+  Future<SharedPreferences> get sharedPreferences async {
+    return await SharedPreferences.getInstance();
+  }
 
   @preResolve
   Future<Database> get database async => openDatabase(
