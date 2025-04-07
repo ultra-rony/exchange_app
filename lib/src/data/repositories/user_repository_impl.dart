@@ -16,4 +16,13 @@ class UserRepositoryImpl implements UserRepository {
     final resp = await _storedUsersDataSource.fetchUsers();
     return resp.map<UserModel>((item) => UserModel.fromJson(item)).toList();
   }
+
+  @override
+  Future<UserModel?> getStoredUser(String login, password) async {
+    final resp = await _storedUsersDataSource.fetchUserByLoginPassword(
+      login,
+      password,
+    );
+    return resp == null ? null : UserModel.fromJson(resp);
+  }
 }

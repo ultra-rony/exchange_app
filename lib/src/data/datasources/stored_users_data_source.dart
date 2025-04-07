@@ -10,4 +10,17 @@ class StoredUsersDataSource {
   Future<List<Map<String, dynamic>>> fetchUsers() async {
     return await _database.query('users');
   }
+
+  Future<Map<String, dynamic>?> fetchUserByLoginPassword(String login, password) async {
+    final List<Map<String, dynamic>> result = await _database.query(
+      'users',
+      where: 'login = ? AND password = ?',
+      whereArgs: [login, password],
+    );
+
+    if (result.isEmpty) {
+      return null;
+    }
+    return result.first;
+  }
 }
