@@ -17,10 +17,10 @@ import 'package:exchange_app/src/data/repositories/cryptocurrencies_repository_i
     as _i568;
 import 'package:exchange_app/src/domain/repositories/cryptocurrencies_repository.dart'
     as _i186;
+import 'package:exchange_app/src/domain/usecases/add_stored_cryptocurrency_use_case.dart'
+    as _i873;
 import 'package:exchange_app/src/domain/usecases/get_stored_cryptocurrencies_use_case.dart'
     as _i474;
-import 'package:exchange_app/src/domain/usecases/insert_stored_cryptocurrency_use_case.dart'
-    as _i580;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:logger/logger.dart' as _i974;
@@ -53,8 +53,8 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i186.CryptocurrenciesRepository>(),
       ),
     );
-    gh.factory<_i580.InsertStoredCryptocurrencyUseCase>(
-      () => _i580.InsertStoredCryptocurrencyUseCase(
+    gh.factory<_i873.AddStoredCryptocurrencyUseCase>(
+      () => _i873.AddStoredCryptocurrencyUseCase(
         gh<_i186.CryptocurrenciesRepository>(),
       ),
     );

@@ -3,11 +3,11 @@ import 'package:exchange_app/src/domain/repositories/cryptocurrencies_repository
 import 'package:injectable/injectable.dart';
 
 @injectable
-class InsertStoredCryptocurrencyUseCase
+class AddStoredCryptocurrencyUseCase
     extends GenericUseCase<void, Map<String, dynamic>> {
   final CryptocurrenciesRepository _cryptocurrenciesRepository;
 
-  InsertStoredCryptocurrencyUseCase(this._cryptocurrenciesRepository);
+  AddStoredCryptocurrencyUseCase(this._cryptocurrenciesRepository);
 
   @override
   Future call({Map<String, dynamic>? params}) async {

@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:exchange_app/core/di/injectable.dart';
 import 'package:exchange_app/src/domain/usecases/get_stored_cryptocurrencies_use_case.dart';
-import 'package:exchange_app/src/domain/usecases/insert_stored_cryptocurrency_use_case.dart';
+import 'package:exchange_app/src/domain/usecases/add_stored_cryptocurrency_use_case.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            final InsertStoredCryptocurrencyUseCase insertStoredCryptocurrencyUseCase = getIt();
+            final AddStoredCryptocurrencyUseCase insertStoredCryptocurrencyUseCase = getIt();
             insertStoredCryptocurrencyUseCase(params: {
               "id": "bitcoin",
               "rank": "1",
