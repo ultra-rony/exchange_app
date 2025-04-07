@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserModel {
 
- String? get id; String? get login; String? get password;
+ int? get id; String? get login; String? get password;
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $UserModelCopyWith<$Res>  {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) _then) = _$UserModelCopyWithImpl;
 @useResult
 $Res call({
- String? id, String? login, String? password
+ int? id, String? login, String? password
 });
 
 
@@ -69,7 +69,7 @@ class _$UserModelCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? login = freezed,Object? password = freezed,}) {
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,login: freezed == login ? _self.login : login // ignore: cast_nullable_to_non_nullable
+as int?,login: freezed == login ? _self.login : login // ignore: cast_nullable_to_non_nullable
 as String?,password: freezed == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -85,7 +85,7 @@ class _UserModel extends UserModel {
    _UserModel({required this.id, required this.login, required this.password}): super._();
   factory _UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
 
-@override final  String? id;
+@override final  int? id;
 @override final  String? login;
 @override final  String? password;
 
@@ -122,7 +122,7 @@ abstract mixin class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Re
   factory _$UserModelCopyWith(_UserModel value, $Res Function(_UserModel) _then) = __$UserModelCopyWithImpl;
 @override @useResult
 $Res call({
- String? id, String? login, String? password
+ int? id, String? login, String? password
 });
 
 
@@ -142,7 +142,7 @@ class __$UserModelCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? login = freezed,Object? password = freezed,}) {
   return _then(_UserModel(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,login: freezed == login ? _self.login : login // ignore: cast_nullable_to_non_nullable
+as int?,login: freezed == login ? _self.login : login // ignore: cast_nullable_to_non_nullable
 as String?,password: freezed == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as String?,
   ));

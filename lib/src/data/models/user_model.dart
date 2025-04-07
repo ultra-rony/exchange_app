@@ -8,14 +8,14 @@ part 'user_model.g.dart';
 @freezed
 abstract class UserModel extends UserEntity with _$UserModel {
   factory UserModel({
-    required String? id,
+    required int? id,
     required String? login,
     required String? password,
   }) = _UserModel;
 
   factory UserModel.fromUser(UserEntity? userEntity) {
     return UserModel(
-      id: userEntity?.id ?? '',
+      id: userEntity?.id ?? 0,
       login: userEntity?.login ?? '',
       password: userEntity?.password ?? '',
     );
