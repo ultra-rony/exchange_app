@@ -16,4 +16,9 @@ class CryptocurrenciesRepositoryImpl implements CryptocurrenciesRepository {
         .map<CryptocurrencyModel>((item) => CryptocurrencyModel.fromJson(item))
         .toList();
   }
+
+  @override
+  Future insertCryptocurrency(Map<String, dynamic> cryptocurrency) async {
+    await _cryptocurrenciesDataSource.insertCryptocurrency(cryptocurrency);
+  }
 }
