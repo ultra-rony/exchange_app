@@ -2,10 +2,10 @@ import 'package:injectable/injectable.dart';
 import 'package:sqflite/sqflite.dart';
 
 @injectable
-class CryptocurrenciesDataSource {
+class StoredCryptocurrenciesDataSource {
   final Database _database;
 
-  CryptocurrenciesDataSource(this._database);
+  StoredCryptocurrenciesDataSource(this._database);
 
   Future insertCryptocurrency(Map<String, dynamic> row) async {
     await _database.insert(

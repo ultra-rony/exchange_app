@@ -11,8 +11,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
 import 'package:exchange_app/core/di/register_module.dart' as _i68;
-import 'package:exchange_app/src/data/datasources/cryptocurrencies_data_source.dart'
-    as _i1014;
+import 'package:exchange_app/src/data/datasources/stored_cryptocurrencies_data_source.dart'
+    as _i667;
 import 'package:exchange_app/src/data/repositories/cryptocurrencies_repository_impl.dart'
     as _i568;
 import 'package:exchange_app/src/domain/repositories/cryptocurrencies_repository.dart'
@@ -40,12 +40,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.database,
       preResolve: true,
     );
-    gh.factory<_i1014.CryptocurrenciesDataSource>(
-      () => _i1014.CryptocurrenciesDataSource(gh<_i779.Database>()),
+    gh.factory<_i667.StoredCryptocurrenciesDataSource>(
+      () => _i667.StoredCryptocurrenciesDataSource(gh<_i779.Database>()),
     );
     gh.lazySingleton<_i186.CryptocurrenciesRepository>(
       () => _i568.CryptocurrenciesRepositoryImpl(
-        gh<_i1014.CryptocurrenciesDataSource>(),
+        gh<_i667.StoredCryptocurrenciesDataSource>(),
       ),
     );
     gh.factory<_i474.GetStoredCryptocurrenciesUseCase>(
