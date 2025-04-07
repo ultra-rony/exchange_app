@@ -26,20 +26,20 @@ abstract class RegisterModule {
       await db.execute('''
           CREATE TABLE cryptocurrencies (
             id TEXT PRIMARY KEY,
-            rank TEXT,
-            symbol TEXT,
-            name TEXT,
-            supply TEXT,
-            maxSupply TEXT,
-            marketCapUsd TEXT,
-            volumeUsd24Hr TEXT,
-            priceUsd TEXT,
-            changePercent24Hr TEXT,
-            vwap24Hr TEXT,
-            explorer TEXT
+            rank TEXT NULL,
+            symbol TEXT NULL,
+            name TEXT NULL,
+            supply TEXT NULL,
+            maxSupply TEXT NULL,
+            marketCapUsd TEXT NULL,
+            volumeUsd24Hr TEXT NULL,
+            priceUsd TEXT NULL,
+            changePercent24Hr TEXT NULL,
+            vwap24Hr TEXT NULL,
+            explorer TEXT NULL
           )
         ''');
     },
-    version: 1,
+    version: 2,
   );
 }
