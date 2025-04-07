@@ -11,6 +11,6 @@ class AddStoredCryptocurrencyUseCase
 
   @override
   Future call({Map<String, dynamic>? params}) async {
-    return await _cryptocurrenciesRepository.insertCryptocurrency(params!);
+    return await _cryptocurrenciesRepository.insertStoredCryptocurrency(params!);
   }
 }
