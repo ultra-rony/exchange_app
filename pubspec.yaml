@@ -50,6 +50,7 @@ flutter:
 
   assets:
    - assets/
+   - .env
 
 flutter_intl:
   enabled: true
