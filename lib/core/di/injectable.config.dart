@@ -15,16 +15,24 @@ import 'package:exchange_app/src/data/datasources/remote_cryptocurrencies_data_s
     as _i353;
 import 'package:exchange_app/src/data/datasources/stored_cryptocurrencies_data_source.dart'
     as _i667;
+import 'package:exchange_app/src/data/datasources/stored_users_data_source.dart'
+    as _i138;
 import 'package:exchange_app/src/data/repositories/cryptocurrencies_repository_impl.dart'
     as _i568;
+import 'package:exchange_app/src/data/repositories/user_repository_impl.dart'
+    as _i332;
 import 'package:exchange_app/src/domain/repositories/cryptocurrencies_repository.dart'
     as _i186;
+import 'package:exchange_app/src/domain/repositories/user_repository.dart'
+    as _i1023;
 import 'package:exchange_app/src/domain/usecases/add_stored_cryptocurrency_use_case.dart'
     as _i873;
 import 'package:exchange_app/src/domain/usecases/get_remote_cryptocurrencies_use_case.dart'
     as _i340;
 import 'package:exchange_app/src/domain/usecases/get_stored_cryptocurrencies_use_case.dart'
     as _i474;
+import 'package:exchange_app/src/domain/usecases/get_stored_users_use_case.dart'
+    as _i595;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:logger/logger.dart' as _i974;
@@ -49,6 +57,18 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i667.StoredCryptocurrenciesDataSource>(
       () => _i667.StoredCryptocurrenciesDataSource(gh<_i779.Database>()),
+    );
+    gh.factory<_i138.StoredUsersDataSource>(
+      () => _i138.StoredUsersDataSource(gh<_i779.Database>()),
+    );
+    gh.lazySingleton<_i1023.UserRepository>(
+      () => _i332.UserRepositoryImpl(
+        gh<_i138.StoredUsersDataSource>(),
+        gh<_i974.Logger>(),
+      ),
+    );
+    gh.factory<_i595.GetStoredUsersUseCase>(
+      () => _i595.GetStoredUsersUseCase(gh<_i1023.UserRepository>()),
     );
     gh.lazySingleton<_i186.CryptocurrenciesRepository>(
       () => _i568.CryptocurrenciesRepositoryImpl(
