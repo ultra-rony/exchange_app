@@ -33,8 +33,8 @@ import 'package:exchange_app/src/domain/usecases/get_remote_cryptocurrencies_use
     as _i340;
 import 'package:exchange_app/src/domain/usecases/get_stored_cryptocurrencies_use_case.dart'
     as _i474;
-import 'package:exchange_app/src/domain/usecases/get_stored_user_use_case.dart'
-    as _i647;
+import 'package:exchange_app/src/domain/usecases/get_stored_user_by_login_password_use_case.dart'
+    as _i833;
 import 'package:exchange_app/src/domain/usecases/get_stored_users_use_case.dart'
     as _i595;
 import 'package:get_it/get_it.dart' as _i174;
@@ -74,11 +74,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i595.GetStoredUsersUseCase>(
       () => _i595.GetStoredUsersUseCase(gh<_i1023.UserRepository>()),
     );
-    gh.factory<_i647.GetStoredUserUseCase>(
-      () => _i647.GetStoredUserUseCase(gh<_i1023.UserRepository>()),
-    );
     gh.factory<_i202.AddStoredUserUseCase>(
       () => _i202.AddStoredUserUseCase(gh<_i1023.UserRepository>()),
+    );
+    gh.factory<_i833.GetStoredUserByLoginPasswordUseCase>(
+      () => _i833.GetStoredUserByLoginPasswordUseCase(
+        gh<_i1023.UserRepository>(),
+      ),
     );
     gh.lazySingleton<_i572.CryptocurrencyRepository>(
       () => _i366.CryptocurrencyRepositoryImpl(

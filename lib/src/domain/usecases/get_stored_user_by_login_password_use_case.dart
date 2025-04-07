@@ -4,15 +4,15 @@ import 'package:exchange_app/src/domain/repositories/user_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetStoredUserUseCase
+class GetStoredUserByLoginPasswordUseCase
     extends GenericUseCase<UserEntity?, Map<String, dynamic>> {
   final UserRepository _userRepository;
 
-  GetStoredUserUseCase(this._userRepository);
+  GetStoredUserByLoginPasswordUseCase(this._userRepository);
 
   @override
   Future<UserEntity?> call({Map<String, dynamic>? params}) async {
-    return await _userRepository.getStoredUser(
+    return await _userRepository.getStoredUserByLoginPassword(
       params?['login'] ?? "",
       params?['password'] ?? "",
     );
