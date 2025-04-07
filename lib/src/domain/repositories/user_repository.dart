@@ -4,4 +4,6 @@ abstract class UserRepository {
   Future<List<UserEntity>> getStoredUsers();
 
   Future<UserEntity?> getStoredUser(String login, password);
+
+  Future addStoredUser(String login, password);
 }

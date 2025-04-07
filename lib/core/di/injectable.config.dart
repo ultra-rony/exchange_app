@@ -27,6 +27,8 @@ import 'package:exchange_app/src/domain/repositories/user_repository.dart'
     as _i1023;
 import 'package:exchange_app/src/domain/usecases/add_stored_cryptocurrency_use_case.dart'
     as _i873;
+import 'package:exchange_app/src/domain/usecases/add_stored_user_use_case.dart'
+    as _i202;
 import 'package:exchange_app/src/domain/usecases/get_remote_cryptocurrencies_use_case.dart'
     as _i340;
 import 'package:exchange_app/src/domain/usecases/get_stored_cryptocurrencies_use_case.dart'
@@ -74,6 +76,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i647.GetStoredUserUseCase>(
       () => _i647.GetStoredUserUseCase(gh<_i1023.UserRepository>()),
+    );
+    gh.factory<_i202.AddStoredUserUseCase>(
+      () => _i202.AddStoredUserUseCase(gh<_i1023.UserRepository>()),
     );
     gh.lazySingleton<_i572.CryptocurrencyRepository>(
       () => _i366.CryptocurrencyRepositoryImpl(

@@ -25,4 +25,9 @@ class UserRepositoryImpl implements UserRepository {
     );
     return resp == null ? null : UserModel.fromJson(resp);
   }
+
+  @override
+  Future addStoredUser(String login, password) async {
+    await _storedUsersDataSource.insertUser(login, password);
+  }
 }
