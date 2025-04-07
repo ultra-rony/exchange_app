@@ -1,12 +1,12 @@
 import 'package:exchange_app/core/usecases/generic_use_case.dart';
 import 'package:exchange_app/src/domain/entities/cryptocurrency_entity.dart';
-import 'package:exchange_app/src/domain/repositories/cryptocurrencies_repository.dart';
+import 'package:exchange_app/src/domain/repositories/cryptocurrency_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class GetStoredCryptocurrenciesUseCase
     extends GenericUseCase<List<CryptocurrencyEntity>, void> {
-  final CryptocurrenciesRepository _cryptocurrenciesRepository;
+  final CryptocurrencyRepository _cryptocurrenciesRepository;
 
   GetStoredCryptocurrenciesUseCase(this._cryptocurrenciesRepository);
 

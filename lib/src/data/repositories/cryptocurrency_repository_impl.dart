@@ -3,17 +3,17 @@ import 'package:exchange_app/core/states/network_data_state.dart';
 import 'package:exchange_app/src/data/datasources/remote_cryptocurrencies_data_source.dart';
 import 'package:exchange_app/src/data/datasources/stored_cryptocurrencies_data_source.dart';
 import 'package:exchange_app/src/data/models/cryptocurrency_model.dart';
-import 'package:exchange_app/src/domain/repositories/cryptocurrencies_repository.dart';
+import 'package:exchange_app/src/domain/repositories/cryptocurrency_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
-@LazySingleton(as: CryptocurrenciesRepository)
-class CryptocurrenciesRepositoryImpl implements CryptocurrenciesRepository {
+@LazySingleton(as: CryptocurrencyRepository)
+class CryptocurrencyRepositoryImpl implements CryptocurrencyRepository {
   final StoredCryptocurrenciesDataSource _cryptocurrenciesDataSource;
   final RemoteCryptocurrenciesDataSource _remoteCryptocurrenciesDataSource;
   final Logger _logger;
 
-  CryptocurrenciesRepositoryImpl(
+  CryptocurrencyRepositoryImpl(
     this._cryptocurrenciesDataSource,
     this._remoteCryptocurrenciesDataSource,
     this._logger,

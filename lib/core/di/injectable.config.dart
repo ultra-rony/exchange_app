@@ -17,12 +17,12 @@ import 'package:exchange_app/src/data/datasources/stored_cryptocurrencies_data_s
     as _i667;
 import 'package:exchange_app/src/data/datasources/stored_users_data_source.dart'
     as _i138;
-import 'package:exchange_app/src/data/repositories/cryptocurrencies_repository_impl.dart'
-    as _i568;
+import 'package:exchange_app/src/data/repositories/cryptocurrency_repository_impl.dart'
+    as _i366;
 import 'package:exchange_app/src/data/repositories/user_repository_impl.dart'
     as _i332;
-import 'package:exchange_app/src/domain/repositories/cryptocurrencies_repository.dart'
-    as _i186;
+import 'package:exchange_app/src/domain/repositories/cryptocurrency_repository.dart'
+    as _i572;
 import 'package:exchange_app/src/domain/repositories/user_repository.dart'
     as _i1023;
 import 'package:exchange_app/src/domain/usecases/add_stored_cryptocurrency_use_case.dart'
@@ -70,8 +70,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i595.GetStoredUsersUseCase>(
       () => _i595.GetStoredUsersUseCase(gh<_i1023.UserRepository>()),
     );
-    gh.lazySingleton<_i186.CryptocurrenciesRepository>(
-      () => _i568.CryptocurrenciesRepositoryImpl(
+    gh.lazySingleton<_i572.CryptocurrencyRepository>(
+      () => _i366.CryptocurrencyRepositoryImpl(
         gh<_i667.StoredCryptocurrenciesDataSource>(),
         gh<_i353.RemoteCryptocurrenciesDataSource>(),
         gh<_i974.Logger>(),
@@ -79,17 +79,17 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i474.GetStoredCryptocurrenciesUseCase>(
       () => _i474.GetStoredCryptocurrenciesUseCase(
-        gh<_i186.CryptocurrenciesRepository>(),
+        gh<_i572.CryptocurrencyRepository>(),
       ),
     );
     gh.factory<_i873.AddStoredCryptocurrencyUseCase>(
       () => _i873.AddStoredCryptocurrencyUseCase(
-        gh<_i186.CryptocurrenciesRepository>(),
+        gh<_i572.CryptocurrencyRepository>(),
       ),
     );
     gh.factory<_i340.GetRemoteCryptocurrenciesUseCase>(
       () => _i340.GetRemoteCryptocurrenciesUseCase(
-        gh<_i186.CryptocurrenciesRepository>(),
+        gh<_i572.CryptocurrencyRepository>(),
       ),
     );
     return this;
