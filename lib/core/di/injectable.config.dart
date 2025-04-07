@@ -11,6 +11,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
 import 'package:exchange_app/core/di/register_module.dart' as _i68;
+import 'package:exchange_app/src/data/datasources/remote_cryptocurrencies_data_source.dart'
+    as _i353;
 import 'package:exchange_app/src/data/datasources/stored_cryptocurrencies_data_source.dart'
     as _i667;
 import 'package:exchange_app/src/data/repositories/cryptocurrencies_repository_impl.dart'
@@ -19,6 +21,8 @@ import 'package:exchange_app/src/domain/repositories/cryptocurrencies_repository
     as _i186;
 import 'package:exchange_app/src/domain/usecases/add_stored_cryptocurrency_use_case.dart'
     as _i873;
+import 'package:exchange_app/src/domain/usecases/get_remote_cryptocurrencies_use_case.dart'
+    as _i340;
 import 'package:exchange_app/src/domain/usecases/get_stored_cryptocurrencies_use_case.dart'
     as _i474;
 import 'package:get_it/get_it.dart' as _i174;
@@ -40,12 +44,17 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.database,
       preResolve: true,
     );
+    gh.factory<_i353.RemoteCryptocurrenciesDataSource>(
+      () => _i353.RemoteCryptocurrenciesDataSource(gh<_i361.Dio>()),
+    );
     gh.factory<_i667.StoredCryptocurrenciesDataSource>(
       () => _i667.StoredCryptocurrenciesDataSource(gh<_i779.Database>()),
     );
     gh.lazySingleton<_i186.CryptocurrenciesRepository>(
       () => _i568.CryptocurrenciesRepositoryImpl(
         gh<_i667.StoredCryptocurrenciesDataSource>(),
+        gh<_i353.RemoteCryptocurrenciesDataSource>(),
+        gh<_i974.Logger>(),
       ),
     );
     gh.factory<_i474.GetStoredCryptocurrenciesUseCase>(
@@ -55,6 +64,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i873.AddStoredCryptocurrencyUseCase>(
       () => _i873.AddStoredCryptocurrencyUseCase(
+        gh<_i186.CryptocurrenciesRepository>(),
+      ),
+    );
+    gh.factory<_i340.GetRemoteCryptocurrenciesUseCase>(
+      () => _i340.GetRemoteCryptocurrenciesUseCase(
         gh<_i186.CryptocurrenciesRepository>(),
       ),
     );
