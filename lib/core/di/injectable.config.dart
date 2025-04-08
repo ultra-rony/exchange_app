@@ -12,6 +12,8 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:exchange_app/core/di/register_module.dart' as _i68;
 import 'package:exchange_app/src/cubits/auth/auth_cubit.dart' as _i878;
+import 'package:exchange_app/src/cubits/cryptocurrency/cryptocurrency_cubit.dart'
+    as _i677;
 import 'package:exchange_app/src/cubits/navigation/navigation_cubit.dart'
     as _i524;
 import 'package:exchange_app/src/data/datasources/remote_cryptocurrencies_data_source.dart'
@@ -141,6 +143,13 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i598.SaveCacheLoginUseCase>(),
         gh<_i943.RemoveCacheLoginUseCase>(),
         gh<_i833.GetStoredUserByLoginPasswordUseCase>(),
+      ),
+    );
+    gh.factory<_i677.CryptocurrencyCubit>(
+      () => _i677.CryptocurrencyCubit(
+        gh<_i474.GetStoredCryptocurrenciesUseCase>(),
+        gh<_i340.GetRemoteCryptocurrenciesUseCase>(),
+        gh<_i873.AddStoredCryptocurrencyUseCase>(),
       ),
     );
     return this;

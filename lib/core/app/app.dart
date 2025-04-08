@@ -2,6 +2,7 @@ import 'package:exchange_app/core/app/themes/light_theme.dart';
 import 'package:exchange_app/core/di/injectable.dart';
 import 'package:exchange_app/generated/l10n.dart';
 import 'package:exchange_app/src/cubits/auth/auth_cubit.dart';
+import 'package:exchange_app/src/cubits/cryptocurrency/cryptocurrency_cubit.dart';
 import 'package:exchange_app/src/cubits/navigation/navigation_cubit.dart';
 import 'package:exchange_app/src/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 final providers = [
   BlocProvider<NavigationCubit>(create: (context) => getIt<NavigationCubit>()),
   BlocProvider<AuthCubit>(create: (context) => getIt<AuthCubit>()..check()),
+  BlocProvider<CryptocurrencyCubit>(
+    create: (context) => getIt<CryptocurrencyCubit>()..fetchData(),
+  ),
 ];
 
 class App extends StatelessWidget {
@@ -37,7 +41,7 @@ class App extends StatelessWidget {
         // darkTheme: darkTheme,
         // themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
-        routes: {'/': (context) => HomeScreen()},
+        routes: {'/': (context) => const HomeScreen()},
       ),
     );
   }

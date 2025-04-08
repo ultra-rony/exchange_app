@@ -1,56 +1,67 @@
-import 'package:auto_route/annotations.dart';
-import 'package:exchange_app/core/di/injectable.dart';
-import 'package:exchange_app/src/domain/usecases/get_stored_cryptocurrencies_use_case.dart';
-import 'package:exchange_app/src/domain/usecases/add_stored_cryptocurrency_use_case.dart';
+import 'package:exchange_app/src/cubits/auth/auth_cubit.dart';
+import 'package:exchange_app/src/cubits/cryptocurrency/cryptocurrency_cubit.dart';
+import 'package:exchange_app/src/cubits/navigation/navigation_cubit.dart';
+import 'package:exchange_app/src/presentation/screens/auth_screen.dart';
+import 'package:exchange_app/src/presentation/screens/convert_screen.dart';
+import 'package:exchange_app/src/presentation/screens/rates_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-@RoutePage()
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
+  static final List<Widget> _widgetOptions = <Widget>[
+    const RatesScreen(key: PageStorageKey('rate_screen')),
+    const ConvertScreen(),
+  ];
+
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-
-  @override
-  void initState() {
-    _test();
-    super.initState();
-  }
-
-  _test() async {
-    final GetStoredCryptocurrenciesUseCase getStoredCryptocurrenciesUseCase = getIt();
-    final resp = await getStoredCryptocurrenciesUseCase();
-    print("dsadsa ${resp[0]}");
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final navigationState = context.watch<NavigationCubit>().state;
     return Scaffold(
-        floatingActionButton: FloatingActionButton(
+      appBar: AppBar(
+        title: const Text('Exchange app'),
+        leading: navigationState == 0 ? IconButton(
+          icon: const Icon(Icons.refresh),
           onPressed: () {
-            final AddStoredCryptocurrencyUseCase insertStoredCryptocurrencyUseCase = getIt();
-            insertStoredCryptocurrencyUseCase(params: {
-              "id": "bitcoin",
-              "rank": "1",
-              "symbol": "BTC",
-              "name": "Bitcoin",
-              "supply": "19847912.0000000000000000",
-              "maxSupply": "21000000.0000000000000000",
-              "marketCapUsd": "1567872239868.9874491121708904",
-              "volumeUsd24Hr": "39095048674.8950640942266723",
-              "priceUsd": "78994.3163728752651217",
-              "changePercent24Hr": "-4.4044974377879880",
-              "vwap24Hr": "78016.7657658712668747",
-              "explorer": "https://blockchain.info/"
-            });
+            context.read<CryptocurrencyCubit>().fetchData();
           },
-          child: const Icon(Icons.navigation),
-        ),
-      body: const Center(
-        child: Text("data"),
+        ) : null,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              context.read<AuthCubit>().logout();
+            },
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.monetization_on_outlined),
+            label: 'Rates',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.swap_horiz),
+            label: 'Convert',
+          ),
+        ],
+        currentIndex: navigationState,
+        onTap: (index) {
+          context.read<NavigationCubit>().setIndex(index);
+        },
+      ),
+      body: BlocListener<AuthCubit, AuthState>(
+        listener: (context, state) {
+          if (state is AuthUnauthenticatedState) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => AuthScreen()),
+            );
+          }
+        },
+        child: _widgetOptions.elementAt(navigationState),
       ),
     );
   }
