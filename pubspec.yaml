@@ -51,5 +51,15 @@ flutter:
    - assets/
    - .env
 
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Black.otf
+        - asset: assets/fonts/inter/Inter-Bold.otf
+        - asset: assets/fonts/inter/Inter-Light.otf
+        - asset: assets/fonts/inter/Inter-Medium.otf
+        - asset: assets/fonts/inter/Inter-MediumItalic.otf
+        - asset: assets/fonts/inter/Inter-Regular.otf
+
 flutter_intl:
   enabled: true
