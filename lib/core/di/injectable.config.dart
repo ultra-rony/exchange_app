@@ -12,6 +12,8 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:exchange_app/core/di/register_module.dart' as _i68;
 import 'package:exchange_app/src/cubits/auth/auth_cubit.dart' as _i878;
+import 'package:exchange_app/src/cubits/navigation/navigation_cubit.dart'
+    as _i524;
 import 'package:exchange_app/src/data/datasources/remote_cryptocurrencies_data_source.dart'
     as _i353;
 import 'package:exchange_app/src/data/datasources/stored_cryptocurrencies_data_source.dart'
@@ -72,6 +74,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.database,
       preResolve: true,
     );
+    gh.factory<_i524.NavigationCubit>(() => _i524.NavigationCubit());
     gh.factory<_i353.RemoteCryptocurrenciesDataSource>(
       () => _i353.RemoteCryptocurrenciesDataSource(gh<_i361.Dio>()),
     );
