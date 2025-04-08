@@ -39,7 +39,7 @@ class CryptocurrencyCubit extends Cubit<CryptocurrencyState> {
   convertSelect({
     CryptocurrencyModel? from,
     CryptocurrencyModel? to,
-    int? amount,
+    double? amount,
     required bool isConvertFrom,
   }) async {
     final cryptocurrencies = await _getStoredCryptocurrenciesUseCase();

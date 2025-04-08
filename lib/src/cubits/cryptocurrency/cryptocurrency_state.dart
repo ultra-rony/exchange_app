@@ -5,7 +5,7 @@ sealed class CryptocurrencyState {
   final List<CryptocurrencyModel>? cryptocurrencies;
   final CryptocurrencyModel? from;
   final CryptocurrencyModel? to;
-  final int? amount;
+  final double? amount;
 
   const CryptocurrencyState({
     this.cryptocurrencies,

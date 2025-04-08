@@ -5,7 +5,7 @@ abstract class CurrencyCalculator {
 class CurrencyConverter implements CurrencyCalculator {
   final double from;
   final double to;
-  final int amount;
+  final double amount;
 
   CurrencyConverter(this.from, this.to, this.amount);
 
