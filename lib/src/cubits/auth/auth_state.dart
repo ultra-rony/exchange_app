@@ -9,4 +9,8 @@ final class AuthAuthenticatedState extends AuthState {}
 
 final class AuthUnauthenticatedState extends AuthState {}
 
-final class AuthWrongDataState extends AuthState {}
+final class AuthWrongDataState extends AuthState {
+  final String? errorText;
+
+  AuthWrongDataState(this.errorText);
+}

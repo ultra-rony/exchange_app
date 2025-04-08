@@ -43,10 +43,13 @@ class AuthCubit extends Cubit<AuthState> {
       'password': password,
     });
     if (resp == null) {
-      emit(AuthWrongDataState());
+      emit(AuthWrongDataState("Incorrect login or password"));
       return;
     }
     await _saveCacheLoginUseCase(params: login);
     emit(AuthAuthenticatedState());
   }
+
+  reset() => emit(AuthWrongDataState(null));
+
 }
