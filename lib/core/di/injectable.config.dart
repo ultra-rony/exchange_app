@@ -11,6 +11,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
 import 'package:exchange_app/core/di/register_module.dart' as _i68;
+import 'package:exchange_app/src/cubits/auth/auth_cubit.dart' as _i878;
 import 'package:exchange_app/src/data/datasources/remote_cryptocurrencies_data_source.dart'
     as _i353;
 import 'package:exchange_app/src/data/datasources/stored_cryptocurrencies_data_source.dart'
@@ -129,6 +130,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i474.GetStoredCryptocurrenciesUseCase>(
       () => _i474.GetStoredCryptocurrenciesUseCase(
         gh<_i572.CryptocurrencyRepository>(),
+      ),
+    );
+    gh.factory<_i878.AuthCubit>(
+      () => _i878.AuthCubit(
+        gh<_i957.GetCacheLoginUseCase>(),
+        gh<_i598.SaveCacheLoginUseCase>(),
+        gh<_i943.RemoveCacheLoginUseCase>(),
+        gh<_i833.GetStoredUserByLoginPasswordUseCase>(),
       ),
     );
     return this;
