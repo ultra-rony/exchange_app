@@ -1,4 +1,4 @@
-package fun.rony.exchange_app
+package ru.rodrix.exchangeapp
 
 import io.flutter.embedding.android.FlutterActivity
 
