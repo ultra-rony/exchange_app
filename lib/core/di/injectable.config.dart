@@ -89,29 +89,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i667.StoredCryptocurrenciesDataSource>(
       () => _i667.StoredCryptocurrenciesDataSource(gh<_i779.Database>()),
     );
-    gh.lazySingleton<_i1023.UserRepository>(
-      () => _i332.UserRepositoryImpl(
-        gh<_i138.StoredUsersDataSource>(),
-        gh<_i974.Logger>(),
-      ),
-    );
-    gh.factory<_i833.GetStoredUserByLoginPasswordUseCase>(
-      () => _i833.GetStoredUserByLoginPasswordUseCase(
-        gh<_i1023.UserRepository>(),
-      ),
-    );
-    gh.factory<_i202.AddStoredUserUseCase>(
-      () => _i202.AddStoredUserUseCase(gh<_i1023.UserRepository>()),
-    );
-    gh.factory<_i595.GetStoredUsersUseCase>(
-      () => _i595.GetStoredUsersUseCase(gh<_i1023.UserRepository>()),
-    );
     gh.lazySingleton<_i572.CryptocurrencyRepository>(
       () => _i366.CryptocurrencyRepositoryImpl(
         gh<_i667.StoredCryptocurrenciesDataSource>(),
         gh<_i353.RemoteCryptocurrenciesDataSource>(),
         gh<_i974.Logger>(),
       ),
+    );
+    gh.lazySingleton<_i1023.UserRepository>(
+      () => _i332.UserRepositoryImpl(gh<_i138.StoredUsersDataSource>()),
     );
     gh.factory<_i943.RemoveCacheLoginUseCase>(
       () => _i943.RemoveCacheLoginUseCase(gh<_i218.AuthSharedRepository>()),
@@ -136,6 +122,17 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i474.GetStoredCryptocurrenciesUseCase(
         gh<_i572.CryptocurrencyRepository>(),
       ),
+    );
+    gh.factory<_i833.GetStoredUserByLoginPasswordUseCase>(
+      () => _i833.GetStoredUserByLoginPasswordUseCase(
+        gh<_i1023.UserRepository>(),
+      ),
+    );
+    gh.factory<_i202.AddStoredUserUseCase>(
+      () => _i202.AddStoredUserUseCase(gh<_i1023.UserRepository>()),
+    );
+    gh.factory<_i595.GetStoredUsersUseCase>(
+      () => _i595.GetStoredUsersUseCase(gh<_i1023.UserRepository>()),
     );
     gh.factory<_i878.AuthCubit>(
       () => _i878.AuthCubit(
