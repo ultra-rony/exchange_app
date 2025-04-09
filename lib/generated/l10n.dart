@@ -54,6 +54,81 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Exchange app`
+  String get app_name {
+    return Intl.message('Exchange app', name: 'app_name', desc: '', args: []);
+  }
+
+  /// `Welcome back!`
+  String get welcome_text {
+    return Intl.message(
+      'Welcome back!',
+      name: 'welcome_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login_text {
+    return Intl.message('Login', name: 'login_text', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password_text {
+    return Intl.message('Password', name: 'password_text', desc: '', args: []);
+  }
+
+  /// `Sign in`
+  String get sign_in_text {
+    return Intl.message('Sign in', name: 'sign_in_text', desc: '', args: []);
+  }
+
+  /// `From`
+  String get from {
+    return Intl.message('From', name: 'from', desc: '', args: []);
+  }
+
+  /// `To`
+  String get to {
+    return Intl.message('To', name: 'to', desc: '', args: []);
+  }
+
+  /// `Select currency`
+  String get select_currency {
+    return Intl.message(
+      'Select currency',
+      name: 'select_currency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount`
+  String get amount {
+    return Intl.message('Amount', name: 'amount', desc: '', args: []);
+  }
+
+  /// `Rates`
+  String get rates {
+    return Intl.message('Rates', name: 'rates', desc: '', args: []);
+  }
+
+  /// `Convert`
+  String get convert {
+    return Intl.message('Convert', name: 'convert', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message('Confirm', name: 'confirm', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

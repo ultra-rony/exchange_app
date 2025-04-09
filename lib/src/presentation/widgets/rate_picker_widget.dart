@@ -1,3 +1,4 @@
+import 'package:exchange_app/generated/l10n.dart';
 import 'package:exchange_app/src/cubits/cryptocurrency/cryptocurrency_cubit.dart';
 import 'package:exchange_app/src/data/models/cryptocurrency_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,7 +27,7 @@ class RatePickerWidget extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text("Cancel"),
+              child: Text(S.of(context).cancel),
             ),
             const Expanded(child: SizedBox()),
             TextButton(
@@ -48,7 +49,7 @@ class RatePickerWidget extends StatelessWidget {
                 }
                 Navigator.of(context).pop();
               },
-              child: Text("Confirm"),
+              child: Text(S.of(context).confirm),
             ),
           ],
         ),

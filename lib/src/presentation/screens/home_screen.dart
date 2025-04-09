@@ -1,3 +1,4 @@
+import 'package:exchange_app/generated/l10n.dart';
 import 'package:exchange_app/src/cubits/auth/auth_cubit.dart';
 import 'package:exchange_app/src/cubits/cryptocurrency/cryptocurrency_cubit.dart';
 import 'package:exchange_app/src/cubits/navigation/navigation_cubit.dart';
@@ -20,13 +21,16 @@ class HomeScreen extends StatelessWidget {
     final navigationState = context.watch<NavigationCubit>().state;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Exchange app'),
-        leading: navigationState == 0 ? IconButton(
-          icon: const Icon(Icons.refresh),
-          onPressed: () {
-            context.read<CryptocurrencyCubit>().fetchData();
-          },
-        ) : null,
+        title: Text(S.of(context).app_name),
+        leading:
+            navigationState == 0
+                ? IconButton(
+                  icon: const Icon(Icons.refresh),
+                  onPressed: () {
+                    context.read<CryptocurrencyCubit>().fetchData();
+                  },
+                )
+                : null,
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.logout),
@@ -37,14 +41,14 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.monetization_on_outlined),
-            label: 'Rates',
+            icon: const Icon(Icons.monetization_on_outlined),
+            label: S.of(context).rates,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.swap_horiz),
-            label: 'Convert',
+            icon: const Icon(Icons.swap_horiz),
+            label: S.of(context).convert,
           ),
         ],
         currentIndex: navigationState,

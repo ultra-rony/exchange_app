@@ -1,3 +1,4 @@
+import 'package:exchange_app/generated/l10n.dart';
 import 'package:exchange_app/src/cubits/auth/auth_cubit.dart';
 import 'package:exchange_app/src/presentation/screens/home_screen.dart';
 import 'package:exchange_app/src/presentation/widgets/custom_button_widget.dart';
@@ -37,12 +38,12 @@ class AuthScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      "Welcome back!",
+                      S.of(context).welcome_text,
                       style: Theme.of(context).textTheme.headlineLarge,
                     ),
                     SizedBox(height: screenSize.height * 0.07),
                     Text(
-                      "Login",
+                      S.of(context).login_text,
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
                     TextFormField(
@@ -58,7 +59,7 @@ class AuthScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Password",
+                      S.of(context).password_text,
                       style: Theme.of(context).textTheme.headlineMedium,
                     ),
                     TextField(
@@ -82,7 +83,7 @@ class AuthScreen extends StatelessWidget {
                           _passwordTextField.text,
                         );
                       },
-                      title: 'Sign in',
+                      title: S.of(context).sign_in_text,
                     ),
                   ],
                 ),

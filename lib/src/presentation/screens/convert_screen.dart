@@ -1,6 +1,7 @@
 import 'package:exchange_app/core/extensions/currency_formatter_extension.dart';
 import 'package:exchange_app/core/utils/constants.dart';
 import 'package:exchange_app/core/utils/currency_calculator.dart';
+import 'package:exchange_app/generated/l10n.dart';
 import 'package:exchange_app/src/cubits/cryptocurrency/cryptocurrency_cubit.dart';
 import 'package:exchange_app/src/presentation/widgets/rate_picker_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,7 +37,7 @@ class ConvertScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "From",
+              S.of(context).from,
               textAlign: TextAlign.start,
               style: Theme.of(
                 context,
@@ -53,12 +54,12 @@ class ConvertScreen extends StatelessWidget {
                 );
               },
               icon: const Icon(Icons.arrow_downward_rounded),
-              label: Text(state.from?.symbol ?? "Select currency"),
+              label: Text(state.from?.symbol ?? S.of(context).select_currency),
               iconAlignment: IconAlignment.end,
             ),
             const SizedBox(height: 30),
             Text(
-              "To",
+              S.of(context).to,
               textAlign: TextAlign.start,
               style: Theme.of(
                 context,
@@ -75,12 +76,12 @@ class ConvertScreen extends StatelessWidget {
                 );
               },
               icon: const Icon(Icons.arrow_downward_rounded),
-              label: Text(state.to?.symbol ?? "Select currency"),
+              label: Text(state.to?.symbol ?? S.of(context).select_currency),
               iconAlignment: IconAlignment.end,
             ),
             const SizedBox(height: 30),
             Text(
-              "Amount",
+              S.of(context).amount,
               textAlign: TextAlign.start,
               style: Theme.of(
                 context,
