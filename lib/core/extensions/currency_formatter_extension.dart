@@ -1,4 +1,4 @@
-extension CurrencyFormatter on String {
+extension CurrencyFormatterExtension on String {
   // Ограничивает количество цифр после точки до максимум 18.
   String limitDecimalPlaces() {
     final parts = split('.');
