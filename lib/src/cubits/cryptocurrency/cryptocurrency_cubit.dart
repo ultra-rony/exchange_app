@@ -41,12 +41,13 @@ class CryptocurrencyCubit extends Cubit<CryptocurrencyState> {
     CryptocurrencyModel? to,
     double? amount,
     required bool isConvertFrom,
+    bool isAmount = false,
   }) async {
     final cryptocurrencies = await _getStoredCryptocurrenciesUseCase();
     // Убираем если повторяется
     final target = isConvertFrom ? to : from;
     final source = isConvertFrom ? from : to;
-    if (source != null && source.id == target?.id) {
+    if (source != null && source.id == target?.id && !isAmount) {
       if (isConvertFrom) {
         to = null;
       } else {
