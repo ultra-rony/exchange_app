@@ -14,10 +14,10 @@ A real-time currency exchange rate tracker built with Flutter. Stay updated with
                 <img src="https://github.com/ultra-rony/exchange_app/blob/dev/screenshots/ezgif-19af55dee87e90.gif?raw=true" width="150" alt=""/>
             </td>
             <td style="text-align: center">
-                <img src="https://github.com/ultra-rony/exchange_app/blob/dev/screenshots/ezgif-1fc01f595c1fd8.gif?raw=true" width="150" alt=""/>
+                <img src="https://github.com/ultra-rony/exchange_app/blob/dev/screenshots/ezgif-4d67a9c61d4049.gif?raw=true" width="150" alt=""/>
             </td>
             <td style="text-align: center">
-                <img src="https://github.com/ultra-rony/exchange_app/blob/dev/screenshots/ezgif-10ad30a2a79032.gif?raw=true" width="150" alt=""/>
+                <img src="https://github.com/ultra-rony/exchange_app/blob/dev/screenshots/ezgif-4bb6f126d7e147.gif?raw=true" width="150" alt=""/>
             </td>
         </tr>
     </table>
