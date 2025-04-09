@@ -25,27 +25,40 @@ A real-time currency exchange rate tracker built with Flutter. Stay updated with
 
 ## Getting Started
 
-<strong>Step 1</strong>
+<p><strong>Step 1</strong></p>
 
 ```bash
 git clone https://github.com/ultra-rony/exchange_app.git
 ```
 
-<strong>Step 2</strong>
+<p><strong>Step 2</strong></p>
 
 ```bash
 cd exchange_app
 ```
 
-<strong>Step 3</strong>
+<p><strong>Step 3</strong></p>
 
 Generate your key https://pro.coincap.io/dashboard
 
-<strong>Step 4</strong>
+<p><strong>Step 4</strong></p>
 
-Create `.env`:
+Create file `.env`:
+
 ```dotenv
-    COINCAP_API_KEY=<YOUR_API_KEY>
-    LOGIN=<YOUR_LOGIN>
-    PASSWORD=<YOUR_PASSWORD>
+COINCAP_API_KEY=<YOUR_API_KEY>
+LOGIN=<YOUR_LOGIN>
+PASSWORD=<YOUR_PASSWORD>
+```
+
+<p><strong>Step 5</strong></p>
+
+```bash
+flutter pub get
+```
+
+<p><strong>Step 6</strong></p>
+
+```bash
+flutter test && flutter run
 ```
