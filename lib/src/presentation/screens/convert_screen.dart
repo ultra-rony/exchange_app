@@ -130,12 +130,12 @@ class ConvertScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "${commission.calc().toString().limitDecimalPlaces()} ${state.to?.symbol}",
+                        "${commission.calc().toString().limitDecimalPlaces(max: 2)} ${state.to?.symbol}",
                         style: Theme.of(context).textTheme.headlineMedium
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "${convert.calc().toString().limitDecimalPlaces()} ${state.to?.symbol} + ${Constants.commission}%",
+                        "${convert.calc().toString().limitDecimalPlaces(max: 2)} ${state.to?.symbol} + ${Constants.commission}%",
                         style: Theme.of(context).textTheme.headlineMedium
                             ?.copyWith(fontWeight: FontWeight.bold),
                       ),
