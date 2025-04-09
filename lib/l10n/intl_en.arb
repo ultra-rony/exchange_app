@@ -1,0 +1,15 @@
+{
+  "app_name": "Exchange app",
+  "welcome_text": "Welcome back!",
+  "login_text": "Login",
+  "password_text": "Password",
+  "sign_in_text": "Sign in",
+  "from": "From",
+  "to": "To",
+  "select_currency": "Select currency",
+  "amount": "Amount",
+  "rates": "Rates",
+  "convert": "Convert",
+  "cancel": "Cancel",
+  "confirm": "Confirm"
+}
