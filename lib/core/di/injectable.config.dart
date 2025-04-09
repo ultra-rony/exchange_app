@@ -140,6 +140,8 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i598.SaveCacheLoginUseCase>(),
         gh<_i943.RemoveCacheLoginUseCase>(),
         gh<_i833.GetStoredUserByLoginPasswordUseCase>(),
+        gh<_i595.GetStoredUsersUseCase>(),
+        gh<_i202.AddStoredUserUseCase>(),
       ),
     );
     gh.factory<_i677.CryptocurrencyCubit>(
