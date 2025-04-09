@@ -16,7 +16,10 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<UserModel?> getStoredUserByLoginPassword(String login, password) async {
+  Future<UserModel?> getStoredUserByLoginPassword(
+    String login,
+    password,
+  ) async {
     final resp = await _storedUsersDataSource.fetchUserByLoginPassword(
       login,
       password,

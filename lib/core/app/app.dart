@@ -14,7 +14,11 @@ final providers = [
   BlocProvider<NavigationCubit>(create: (context) => getIt<NavigationCubit>()),
   BlocProvider<AuthCubit>(create: (context) => getIt<AuthCubit>()..check()),
   BlocProvider<CryptocurrencyCubit>(
-    create: (context) => getIt<CryptocurrencyCubit>()..fetchData()..startTimer(),
+    create:
+        (context) =>
+            getIt<CryptocurrencyCubit>()
+              ..fetchData()
+              ..startTimer(),
   ),
 ];
 

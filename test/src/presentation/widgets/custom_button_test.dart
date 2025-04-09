@@ -8,10 +8,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CustomButtonWidget(
-              onTap: () {},
-              title: 'Test Button',
-            ),
+            body: CustomButtonWidget(onTap: () {}, title: 'Test Button'),
           ),
         ),
       );
@@ -27,10 +24,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CustomButtonWidget(
-              onTap: mockOnTap,
-              title: 'Tap Me',
-            ),
+            body: CustomButtonWidget(onTap: mockOnTap, title: 'Tap Me'),
           ),
         ),
       );
@@ -38,7 +32,9 @@ void main() {
       expect(wasTapped, true);
     });
 
-    testWidgets('triggers HapticFeedback on button press', (WidgetTester tester) async {
+    testWidgets('triggers HapticFeedback on button press', (
+      WidgetTester tester,
+    ) async {
       bool wasTapped = false;
       void mockOnTap() {
         wasTapped = true;
@@ -47,10 +43,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CustomButtonWidget(
-              onTap: mockOnTap,
-              title: 'Tap Me',
-            ),
+            body: CustomButtonWidget(onTap: mockOnTap, title: 'Tap Me'),
           ),
         ),
       );

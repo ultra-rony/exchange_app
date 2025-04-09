@@ -14,6 +14,7 @@ class CurrencyConverter implements CurrencyCalculator {
     return (from * amount) / to;
   }
 }
+
 // Прибавление комиссии
 class TransferFee implements CurrencyCalculator {
   final double commission;

@@ -38,6 +38,5 @@ void main() {
       const input = '12345.12345678901234567890';
       expect(input.limitDecimalPlaces(), equals('12345.123456789012345678'));
     });
-
   });
 }

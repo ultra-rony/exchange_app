@@ -17,9 +17,7 @@ final ThemeData lightTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: WidgetStateProperty.all<Color>(Colors.blue),
-      foregroundColor: WidgetStateProperty.all<Color>(
-        Colors.white,
-      ),
+      foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
     ),
   ),
 );

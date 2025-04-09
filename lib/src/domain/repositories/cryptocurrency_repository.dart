@@ -6,5 +6,6 @@ abstract class CryptocurrencyRepository {
 
   Future insertStoredCryptocurrency(Map<String, dynamic> cryptocurrency);
 
-  Future<NetworkDataState<List<CryptocurrencyEntity>>> getRemoteCryptocurrencies();
+  Future<NetworkDataState<List<CryptocurrencyEntity>>>
+  getRemoteCryptocurrencies();
 }

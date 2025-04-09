@@ -7,11 +7,7 @@ class RateWidget extends StatelessWidget {
   final String? symbol;
   final String? price;
 
-  const RateWidget({
-    super.key,
-    this.symbol,
-    this.price,
-  });
+  const RateWidget({super.key, this.symbol, this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +29,8 @@ class RateWidget extends StatelessWidget {
                       (symbol ?? "").toLowerCase(),
                     ),
                     fit: BoxFit.fill,
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                    errorWidget:
+                        (context, url, error) => const Icon(Icons.error),
                   ),
                 ),
               ),

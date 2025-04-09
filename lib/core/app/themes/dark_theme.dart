@@ -14,7 +14,11 @@ final ThemeData darkTheme = ThemeData(
     ),
   ),
   textTheme: const TextTheme(
-    headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
+    headlineLarge: TextStyle(
+      fontSize: 32,
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+    ),
     headlineMedium: TextStyle(fontSize: 16, color: Colors.white70),
     headlineSmall: TextStyle(fontSize: 12, color: Colors.white54),
   ),

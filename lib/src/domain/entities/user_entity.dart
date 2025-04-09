@@ -3,9 +3,5 @@ class UserEntity {
   final String? login;
   final String? password;
 
-  UserEntity({
-    this.id,
-    this.login,
-    this.password,
-  });
+  UserEntity({this.id, this.login, this.password});
 }

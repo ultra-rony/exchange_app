@@ -71,6 +71,7 @@ class CryptocurrencyCubit extends Cubit<CryptocurrencyState> {
       ),
     );
   }
+
   // Обновляем данные каждые N секунду
   startTimer() async {
     if (_timer != null) return;
