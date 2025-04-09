@@ -12,5 +12,7 @@ class Constants {
   static const String iconUrl = "https://assets.coincap.io/assets/icons/XXX@2x.png";
   // Комиссия за конверт в процентах
   static const double commission = 3.0;
+  // Интервал обновление
+  static const Duration interval = Duration(seconds: 30);
 
 }

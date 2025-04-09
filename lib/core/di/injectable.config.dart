@@ -149,6 +149,7 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i474.GetStoredCryptocurrenciesUseCase>(),
         gh<_i340.GetRemoteCryptocurrenciesUseCase>(),
         gh<_i873.AddStoredCryptocurrencyUseCase>(),
+        gh<_i974.Logger>(),
       ),
     );
     return this;
