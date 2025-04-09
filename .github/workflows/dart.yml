@@ -21,6 +21,13 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Creating a test env file
+        run: |
+          echo "COINCAP_API_KEY=******" > .env
+          echo "LOGIN=test" >> .env
+          echo "PASSWORD=test" >> .env
+        shell: bash
+
       - name: Analyze code
         run: flutter analyze
 
