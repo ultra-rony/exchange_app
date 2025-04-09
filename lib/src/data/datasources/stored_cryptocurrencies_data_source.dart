@@ -16,6 +16,6 @@ class StoredCryptocurrenciesDataSource {
   }
 
   Future<List<Map<String, dynamic>>> fetchCryptocurrencies() async {
-    return await _database.query('cryptocurrencies');
+    return await _database.query('cryptocurrencies', orderBy: 'rank ASC');
   }
 }
