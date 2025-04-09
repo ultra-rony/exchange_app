@@ -29,7 +29,7 @@ class AuthCubit extends Cubit<AuthState> {
     this._getStoredUsersUseCase,
     this._addStoredUserUseCase,
   ) : super(AuthInitialState());
-
+  // Проверка на авторизацию пользователя
   Future check() async {
     final allUsers = await _getStoredUsersUseCase();
     // Если пользователей нет добаввляем
@@ -53,7 +53,7 @@ class AuthCubit extends Cubit<AuthState> {
     await _removeCacheLoginUseCase();
     emit(AuthUnauthenticatedState());
   }
-
+  // Войти
   Future login(String login, password) async {
     final resp = await _getStoredUserByLoginPasswordUseCase(
       params: {'login': login, 'password': password},
@@ -65,6 +65,6 @@ class AuthCubit extends Cubit<AuthState> {
     await _saveCacheLoginUseCase(params: login);
     emit(AuthAuthenticatedState());
   }
-
+  // Сброс ошибки
   reset() => emit(AuthWrongDataState(null));
 }
